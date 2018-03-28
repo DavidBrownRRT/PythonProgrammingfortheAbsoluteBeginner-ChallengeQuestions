@@ -1,0 +1,54 @@
+#Challenge question 1:
+#Write a program that simulates a fortune cookie.
+#The program should display one of five unique fortunes, at random, each time it’s run.
+
+# Fortune Cookie
+# Displays Random Fortune
+# Allows user to see repeated random fortunes up to 5
+#David A Brown
+
+#Import the random module
+import random
+
+#Print header
+print("\t\t~~Cyber Fortune Cookie~~")
+
+#Initial instructions for user
+input("  \n\tHit ENTER to see your fortune")
+
+# Set the initial values
+prefix = "Your fortune is: "
+count = 0
+fortune1 = "When much wine goes in very bad things come out."
+fortune2 = "You will be hungry in one hour."
+fortune3 = "Order another egg roll and you will be happy."
+fortune4 = "You will love the spicy ginger shrimp."
+fortune5 = "You will meet an old friend soon."
+
+#Loop for selecting random fortunes
+while True:
+    #Picks a random number
+    number = random.randint (1,6)
+    #if and elif statements for fortune output
+    if number == 1:    
+        print("\n", prefix, fortune1)
+        count += 1
+    elif number == 2:
+        print("\n", prefix, fortune2)
+        count += 1     
+    elif number == 3:
+        print("\n", prefix, fortune3)
+        count += 1
+    elif number == 4:
+        print("\n", prefix, fortune4)
+        count += 1
+    elif number == 5:
+        print("\n", prefix, fortune5)
+        count += 1
+    #Gives user choice of getting another fortune or exiting program
+    if input("\nHit Enter for another fortune or 'y' + Enter to exit. ").lower() == 'y':
+        break # exit the loop
+    #Sentinel to close program after 5 fortunes are displayed
+    if count > 5:
+        print("\nNo more fortunes for you")
+        break
