@@ -1,0 +1,82 @@
+#Here’s a bigger challenge. Write the pseudocode for a
+#program where the player and the computer trade places
+#in the number guessing game. That is, the player picks
+#a random number between 1 and 100 that the computer has
+#to guess. Before you start, think about how you guess.
+#If all goes well, try coding the game.
+#------------
+#Pseudo code
+#Introduce game to user
+#Player picks a random number between 1 and 100
+#User inputs number, "secret number"
+#Computer tries to guess with initial guess
+#Number is evaluated against secret number
+#If first guess > secret number a meassage is displayed stating to guess lower
+#If first guess < secret number a message is displayed stating to guess higher
+#Computer continues guess number
+#Evaluate subsequent computer guesses against secret number
+#Tighten computer guess range per evaluation
+#Guess until computer guess equals secret number or guess tries >20
+#Notify user if computer guess correctly and display number of tries
+#Notify computer that number of tries exceeded and game is over
+
+import random
+print(
+    """
+        ~~~LET'S PLAY STUMP THE COMPUTER~~~"
+        
+In this game we will pick a number between 1 and 100.
+The computer will try to guess what it is, in 20 tries or
+less. Think of a number and enter it below. 
+    """
+     )
+#Set the intial values
+first_guess = random.randint(1, 100)
+tries = 0
+guess = ""
+human_number = int(input("\nEnter your secret number here: "))
+print("\nComputer says: Okay, my first guess is: ", first_guess)
+
+if first_guess != human_number:
+    tries +=1
+    print("\nThat's not it.")
+if first_guess > human_number:
+    print("\nI'll give you a hint: Guess lower.")
+    print("\nComputer says: Okay, I'll guess lower")
+    input("\nPress enter for computer to guess again")
+if first_guess < human_number:
+    print("\nI'll give you a hint: Guess higher.")
+    print("\nComputer says: Okay, I'll guess higher")
+    input("\nPress enter for computer to guess again")
+while guess != human_number:
+        #print("\nNot quite, try again.")
+        tries +=1
+        if human_number >= 80 <= 100:
+            print("\nAlmost ther, try again!")
+            guess = random.randint(80, 100)
+            print("\nComputer's next guess is: ", guess)
+        elif human_number >= 60 <=79:
+            print("\nGetting closer, try again!")
+            guess = random.randint(60, 79)
+            print("\nComputer's next guess is: ", guess)
+        elif human_number >= 40 <=59:
+            print("\nAlmost, guess again!")
+            guess = random.randint(40, 59)
+            print("\nComputer's next guess is: ", guess)
+        elif human_number >= 20 <=39:
+            print("\nGetting close, guess again!")
+            guess = random.randint(20, 39)
+            print("\nComputer's next guess is: ", guess)
+        elif human_number >= 1 <= 19:
+            print("\nNow you're cookin', guess again!")
+            guess = random.randint(1, 19)
+            print("\nComputer's next guess is: ", guess)
+        if guess == human_number:
+            print("\nYay! The computer got it in only ",tries,"tries!")
+            break
+        if tries >20:
+            print("\nSorry computer, game over, you lose.")
+            break
+          
+input("\n\nPress the enter key to exit.")
+
